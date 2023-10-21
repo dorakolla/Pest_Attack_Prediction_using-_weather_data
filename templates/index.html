@@ -1,0 +1,75 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Style the form container */
+        * {
+            box-sizing: border-box;
+        }
+
+        h1{
+            font-size: 28px; 
+            font-weight: bold; 
+            text-align: center;
+            color: #0073e6; 
+            text-transform: uppercase; 
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); 
+            margin-top: 20px; 
+        }
+        
+        body{
+            background-color: #FAF3E0;
+        }
+        .form-container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 25px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        /* Style the form fields and button */
+        .form-container input[type="text"] {
+            width: 100%;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .form-container button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        h1{
+            text-align: center;
+        }
+
+        /* Style the button on hover */
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Pest Prediction</h1>
+    </div>
+    <!-- Displayinh the form -->
+    <div class="form-container">
+        <h4>Select Your region</h4>
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

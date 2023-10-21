@@ -1,0 +1,300 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Value</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #FAF3E0;
+            text-align: left;
+            list-style-position: outside;
+            .image {
+                position: relative; 
+            }
+            
+            .image img {
+                border: 1px solid #ddd;
+                border-radius: 8px;
+            }
+
+            /* Style for the image label */
+            .image-label {
+                position: absolute; /* Absolute positioning for the label */
+                bottom: 0; /* Position at the bottom of the image */
+                left: 0; /* Position at the left of the image */
+                background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better readability */
+                color: #fff; /* Text color */
+                padding: 5px; /* Add padding for better spacing */
+                font-size: 14px; /* Adjust the font size as needed */
+            }
+
+        }
+           ul {
+                list-style-type: disc;
+                margin-left: 20px;
+            }
+
+            /* Style for list items */
+            li {
+                margin: 5px 0;
+            }
+            img {
+                border: 5px solid #555;
+                }
+        .container2{
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 1000px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+        .container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 500px;
+            margin: 0 auto;
+            margin-top: 50px;
+            text-align: center;
+        }
+         /* addd more styling */
+        .city {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .pest{
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .image{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%;
+                }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="city">
+            <h2>Selected region </h2>
+            <h3>{{ your_region }}</h3>
+        </div>
+       <div class="pest">
+        <h2>Pest Predicted</h2>
+        <h3>{{ your_value }}</h3>
+       </div>
+    </div>
+    <div class="container2">
+        <div class="pest_des">
+            <div class="description">
+                {% if your_value == "Green Leaf Hopper" %}
+               
+                <div class="image">
+                    <img src="{% static 'greenLeaf.jpeg' %}" alt="pest" width="300" height="300">
+                    <p class="image-label">Green Leaf Hopper</p>
+                   </div>
+                <div class="box">
+                    <h3>Symtomps of damage</h3>
+                    <ul>
+                        <li>Yellowing of leaves from tip to downwards</li>
+                        <li>Vector for the diseases viz., Rice tungro virus, rice yellow & transitory yellowing cause direct damage to the rice plant</li>
+                        <li>Retarded vigorous and stunted growth</li>
+                        <li>Drying up of plant due to sucking up of the leaf</li>
+                    </ul>
+                </div>
+                <div class="management">
+                    <h3>Management</h3>
+                    <ul>
+                        <li>Nursery should not be located near the street lamps.</li>
+                        <li>Spray any one of the following insecticides:</li>
+                        <ul>
+                            <li>Phosphamidon 40 SL - 50 ml</li>
+                            <li>Phosalone 35 EC - 120 ml</li>
+                        </ul>
+                        <li>Maintain 2.5 cm of water in the nursery and broadcast anyone of the following in 20 cents:</li>
+                        <ul>
+                            <li>Carbofuran 3 G - 3.5 kg</li>
+                            <li>Phorate 10 G - 1.0 kg</li>
+                        </ul>
+                    </ul>
+                </div>
+                {% elif your_value == "White Blacked Plant Hopper" %}
+                    <div class="image">
+                        <img src="{% static 'whitehopper.jpeg' %}" alt="pest" width="300" height="300">
+                        <p class="image-label">White Blacked Plant Hopper</p>
+                    </div>
+                   <div class="box">
+                    <h3>Symtomps of damage</h3>
+                    <ul>
+                        <li>Presence of brown coloured egg mass near leaf tip</li>
+                        <li>Larva bores into central shoot of paddy seedling and tiller, causing drying of the central shoot known as “dead heart”</li>
+                        <li>If infestation occurs in grown up plant, the whole panicle becomes dried and known as “white ear”</li>
+                        <li>Affected shoots and panicles could be easily pulled by hand</li>
+                    </ul>
+
+                   </div>
+                   <div class="managment">
+                    <h3>Management</h3>
+                    <ul>
+                        <li>Avoid close planting and provide 30 cm rogue spacing at every 2.5 to 3.0 m.</li>
+                        <li>Control irrigation by alternate wetting and drying.</li>
+                        <li>Avoid excessive use of nitrogen.</li>
+                        <li>Apply any one of the following insecticides:</li>
+                        <ul>
+                            <li>Acetamiprid 20% SP - 20-40 g/ac</li>
+                            <li>Acephate 75% SP - 400 g/ac</li>
+                            <li>Buprofezin 25% SC - 320 ml/ac</li>
+                            <li>Carbosulfan 25 EC - 400 ml/ac</li>
+                            <li>Chlorantraniliprole 18.5% SC - 60 g/ac</li>
+                            <li>Chlorantraniliprole 0.4% G - 4 kg/ac</li>
+                            <li>Clothianidin 50% WG - 8-9.6 g/ac</li>
+                            <li>Chlorpyriphos 20 EC - 500 ml/ac</li>
+                        </ul>
+                    </ul>
+                </div>
+                {% elif your_value == "Brown Plant Hopper" %}
+                <div class="image">
+                    <img src="{% static 'brownhopper.jpeg' %}" alt="pest" width="300" height="300">
+                    <p class="image-label">Brown Plant Hoppper</p>
+                </div>
+                <div class="box">
+                    <h3>Symtomps of damage</h3>
+                    <ul>
+                        <li>Nymphs and adults congregate at the base of the plant above the water level.</li>
+                        <li>Affected plant dries up and gives a scorched appearance called "hopper burn".</li>
+                        <li>Circular patches of drying and lodging of matured plant.</li>
+                        <li>It transmits grassy stunt, ragged stunt, and wilted stunt diseases.</li>
+                        <li>Honeydew is secreted by nymphs and adults, which causes sooty mold at the base.</li>
+                    </ul>
+
+                </div>
+                <div class="managment">
+                    <h3>management</h3>
+                    <ul>
+                        <li>Planting Recommendations</li>
+                        <ul>
+                            <li>Avoid close planting and provide 30 cm rogue spacing at every 2.5 to 3.0 m.</li>
+                            <li>Control irrigation by alternate wetting and drying.</li>
+                            <li>Avoid excessive use of nitrogen.</li>
+                        </ul>
+                        <li>Pest Control Recommendations</li>
+                        <ul>
+                            <li>Release natural enemies like Lycosa pseudoannulata, Cyrtorhinus lividipennis adults (200-250 bugs/ha) during the peak incidence of BPH.</li>
+                            <li>Set up light traps during the night or yellow pan traps during the daytime.</li>
+                            <li>Drain the water before using insecticides and direct the spray towards the base of the plants.</li>
+                            <li>Apply Neem oil 3% - 6 lit/ac or Azadirachtin 0.03% - 400 ml/ac.</li>
+                            <li>Apply any one of the following insecticides:</li>
+                            <ul>
+                                <li>Acetamiprid 20% SP - 20-40 g/ac</li>
+                                <li>Acephate 75% SP - 400 g/ac</li>
+                                <li>Buprofezin 25% SC - 320 ml/ac</li>
+                                <li>Carbosulfan 25 EC - 400 ml/ac</li>
+                                <li>Chlorantraniliprole 18.5% SC - 60 g/ac</li>
+                                <li>Chlorantraniliprole 0.4% G - 4 kg/ac</li>
+                                <li>Clothianidin 50% WG - 8-9.6 g/ac</li>
+                                <li>Chlorpyriphos 20 EC - 500 ml/ac</li>
+                            </ul>
+                        </ul>
+                    </ul>
+                </div>
+                
+                {% elif your_value == "Yellow Stem borer" %}
+                <div class="image">
+                    <img src="{% static 'yellowStem.jpeg' %}" alt="pest" width="300" height="300">
+                    <p class="image-label">Yellow Stem borer</p>
+                </div>
+                <div class="box">
+                    <h3>Symtomps of damage</h3>
+                    <li>Presence of brown-colored egg mass near leaf tip.</li>
+                    <li>Larva bores into the central shoot of paddy seedling and tiller, causing drying of the central shoot known as "dead heart".</li>
+                    <li>If infestation occurs in the grown-up plant, the whole panicle becomes dried and is known as "white ear".</li>
+                    <li>Affected shoots and panicles could be easily pulled by hand.</li>
+                </div>
+                <div class="management">
+                    <h3>management</h3>
+                    <ul>
+                        <li>Spray Neem seed kernel extract 5% or Azadirachtin 0.03% - 400 ml/ac.</li>
+                        <li>Spray any one of the following insecticides:</li>
+                        <ul>
+                            <li>Acephate 75% SP - 267-400 g/ac</li>
+                            <li>Carbofuran 3% CG - 10 kg/ac</li>
+                            <li>Carbosulfan 6% G - 6.7 kg/ac</li>
+                            <li>Carbosulfan 25% EC - 320-400 ml/ac</li>
+                            <li>Cartap Hydrochloride 50% SP - 400 g/ac</li>
+                            <li>Chlorantraniliprole 18.5% SC - 60 ml/ac</li>
+                            <li>Chlorantraniliprole 0.4% G - 4 kg/ac</li>
+                            <li>Chlorpyriphos 20% EC - 500 ml/ac</li>
+                            <li>Fipronil 5% SC - 400-600 g/ac</li>
+                            <li>Fipronil 80% WG - 20-25 g/ac</li>
+                            <li>Flubendiamide 20% WG - 50 g/ac</li>
+                            <li>Flubendiamide 39.35% M/M SC - 20 g/ac</li>
+                            <li>Thiacloprid 21.7% SC - 200 g/ac</li>
+                            <li>Thiamethoxam 25% WG - 40 g/ac</li>
+                        </ul>
+                    </ul>
+                </div>
+                <!-- Leaf Folder-->
+                {% elif your_value == "Leaf Folder" %}
+                <div class="pest-info">
+                    <div class="image">
+                        <img src="{% static 'leafFolder.jpeg' %}" alt="pest" >
+                        <p class="image-label">Leaf Folder</p>
+                    </div>
+                    <div class="cont" >
+                        <div class="box"></div>
+                        <h3>Symtomps of damage</h3>
+                        <ul>
+                            <li>Larva folds the leaves longitudinally and larva remains inside</li>
+                            <li>Larva scrapes the green tissues of the leaves, which later becomes white and dry.</li>
+                            <li>During severe infestation the whole field exhibits scorched appearance</li>
+                        </ul>
+                        
+                    </div>
+                    <div class="managment">
+                        <h3>Management</h3>
+                        <ul>
+                            <li>Avoid excessive nitrogenous fertilizers</li>
+                            <li>Spray NSKE 5 % or Azadirachtin 0.03% 400 ml/ac</li>
+                            <li>Spray any one of the following insectcides</li>
+                            <ul>
+                                    <li>Phosalone 35 EC - 600 ml/ac</li>
+                                    <li>Chlorpyriphos 20 EC - 500 ml/ac</li>
+                                    <li>Acephate 75% SP - 267-400 ml/ac</li>
+                                    <li>Carbosulfan 6% G - 6.7 kg/ac</li>
+                                    <li>Cartap Hydrochloride 50% SP - 400 g/ac</li>
+                                    <li>Chlorantraniliprole 18.5% SC - 60 g/ac</li>
+                                    <li>Chlorantraniliprole 0.4% G - 4 kg/ac</li>
+                                    <li>Fipronil 80% WG - 20-25 g/ac</li>
+                                    <li>Flubendiamide 39.35% M/M SC - 20 g/ac</li>
+                                    <li>Flubendiamide 20% WG - 50-100 g/ac</li>
+                                    <li>Thiamethoxam 25% WG - 40 g/ac</li>
+                                </li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                
+               
+                {% endif %}
+                
+               </div>
+               
+           </div>
+    </div>
+</body>
+</html>
