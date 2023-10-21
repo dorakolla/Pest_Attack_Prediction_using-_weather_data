@@ -26,7 +26,7 @@ def home(request):
     return HttpResponse(template.render({'form': form,'prediction':prediction}, request))
 
 def getWeatherData(city):
-    weather_api_key = '4b69e9c09afabe33e9c0aa775a8400ce'
+    weather_api_key = 'Your_API_key'
 
 # First, fetch current weather data
     current_weather_url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={weather_api_key}'
